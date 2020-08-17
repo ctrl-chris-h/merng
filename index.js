@@ -1,14 +1,16 @@
 import { ApolloServer } from 'apollo-server'
 import mongoose from 'mongoose'
 
-import typeDefs from '../graphql/typeDefs'
-import { MONGODB } from 'config'
-import resolvers from '../graphql/resolvers'
+import typeDefs from './graphql/typeDefs'
+import { MONGODB } from './config'
+import resolvers from './graphql/resolvers'
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
 })
+
+console.log({MONGODB})
 
 mongoose
   .connect(MONGODB, { useNewUrlParser: true })
